@@ -1,0 +1,22 @@
+<div class="children-div-employee">
+
+    <div class="add-employee-form">
+
+        <form id="addEmpForm" (ngSubmit)="submit()">
+
+            <h2>Add Employee</h2>
+            <span *ngIf="addEmployeeMessage" id="addEmployeeMessage">All fields are required</span>
+
+            <input type="text" placeholder="First name" name="firstname" [(ngModel)]="emp.firstname">
+            <input type="text" placeholder="Last name" name="lastname" [(ngModel)]="emp.lastname">
+            <input type="number" placeholder="Started work" name="startwork" [(ngModel)]="emp.startwork">
+            <select #option (change)="onChange(option.value)" (click)="disableFirstOption()">
+                <option [disabled]="disableOption">Select Department</option>
+                <option *ngFor="let department of departments">{{department.name}}</option>
+            </select>
+            <input type="submit" value="Add">
+        </form>
+
+    </div>
+
+</div>

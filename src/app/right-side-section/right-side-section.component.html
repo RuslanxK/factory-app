@@ -1,0 +1,29 @@
+<div class="right-side-section">
+
+    <div class="logged-user-div">
+        <img src="assets/images/user-icon.png" width="70px">
+        <h4>Hello,</h4>
+        <h4>{{fullname}}</h4>
+    </div>
+
+    <div class="actions">
+
+        <span><b>Actions Left: <span id="actions">{{actions}}</span></b></span>
+
+    </div>
+
+    <div class="add-employee">
+
+        <fa-icon id="addUser" (click)="addEmployee()" [icon]="faUserPlus"></fa-icon>
+
+    </div>
+
+    <div class="add-department">
+
+        <fa-icon id="addUser" (click)="addDepartment()" [icon]="faFileCirclePlus"></fa-icon>
+
+    </div>
+
+
+
+</div>

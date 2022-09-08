@@ -1,0 +1,38 @@
+<div class="employee-div">
+
+    <div class="shift-deleteEmp-icon">
+        <fa-icon id="shifts" [icon]="faCalendarPlus" (click)="addShifts()"></fa-icon>
+        <fa-icon id="removeEmp" [icon]="faXmarkCircle" (click)="displayPopup()"></fa-icon>
+    </div>
+
+    <div class="edit-div-icon">
+        <fa-icon id="editEmp" [icon]="faEdit" (click)="editEmp()"></fa-icon>
+    </div>
+
+
+    <div class="employee-name-department">
+        <fa-icon id="user" [icon]="faUser"></fa-icon>
+        <h3>{{employee.firstname}} {{employee.lastname}}</h3>
+        <span>{{employee.department}}</span>
+
+        <button (click)="moreDetails()">More details</button>
+
+    </div>
+
+</div>
+
+<div class="popup" *ngIf="deletePopup">
+
+    <div class="inner-popup">
+
+        <h1>Are you sure?</h1>
+        <span>You will delete<br> <b>{{employee.firstname}} {{employee.lastname}}</b></span>
+        <div>
+            <button id="delete" (click)="deleteEmp()">Delete</button>
+            <button (click)="back()">Cancel</button>
+        </div>
+
+
+    </div>
+
+</div>

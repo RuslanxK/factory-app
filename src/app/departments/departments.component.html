@@ -1,0 +1,9 @@
+<div class="children-div-main">
+
+  <input type="text" class="search" placeholder="Search Name... or Manager..." #text (keyup)="search(text.value)">
+  <div class="children-div">
+
+    <app-department [departmentId]="department._id" *ngFor="let department of filteredDepartments"></app-department>
+
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="children-div-edit-employee">
+
+    <div class="add-employee-form">
+
+        <form id="addEmpForm" (ngSubmit)="submit()">
+
+            <h2>Edit Employee</h2>
+
+            <span *ngIf="editEmployeeMessage" id="addEmployeeMessage">All fields are required</span>
+
+            <input type="text" placeholder="First name" name="firstname" [(ngModel)]="employee.firstname">
+            <input type="text" placeholder="Last name" name="lastname" [(ngModel)]="employee.lastname">
+            <input type="number" placeholder="Started work" name="startwork" [(ngModel)]="employee.startwork">
+
+            <select #option (change)="onChange(option.value)" [(ngModel)]="employee.department">
+                <option>{{dep}}</option>
+                <option *ngFor="let department of departments">{{department.name}}</option>
+            </select>
+
+            <input type="submit" value="Update">
+        </form>
+
+    </div>
+
+</div>

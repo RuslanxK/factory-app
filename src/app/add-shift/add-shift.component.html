@@ -1,0 +1,22 @@
+<div class="children-div-add-shift">
+
+    <div class="add-shift-div">
+
+
+        <div class="shift">
+
+            <h2>Add Shift</h2>
+            <div class="errors">
+                <input type="date" [(ngModel)]="date" (change)="data()">
+                <span *ngIf="text">Working Date Exist</span>
+                <span *ngIf="notExistData">No Data</span>
+            </div>
+            <button (click)="addShift()">Add Date</button> <br>
+        </div>
+
+
+
+
+    </div>
+
+</div>

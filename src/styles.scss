@@ -1,1 +1,699 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Poppins;
+}
+
+@mixin flexbox($align, $direction, $justify) {
+  display: flex !important;
+  flex-direction: $direction !important;
+  justify-content: $justify !important;
+  align-items: $align !important;
+}
+
+@mixin primaryBtn() {
+  padding-left: 22px;
+  padding-right: 22px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 20px;
+  border: none;
+  background-color: #52b788;
+  color: white;
+  font-weight: 500;
+
+  &:hover {
+    background-color: #ccda93;
+  }
+}
+
+body {
+  background-color: #d2d9df;
+  @include flexbox(center, row, center);
+  height: 100vh;
+}
+
+@mixin mainDiv() {
+  width: 1200px;
+  height: 670px;
+  border-radius: 25px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+@mixin mainDiv-Mobile() {
+  width: 100vw;
+  height: 166vh !important;
+  border-radius: 0px !important;
+  background-color: rgb(255, 255, 255);
+}
+
+.login-div {
+  @include mainDiv();
+  @include flexbox(center, row, space-between);
+
+  .login-picture-div {
+    width: 600px;
+    height: 625px;
+    background: url("https://cdni.iconscout.com/illustration/premium/thumb/factory-worker-using-turning-machine-5590286-4664987.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+  }
+
+  .login-form-div {
+    width: 600px;
+    height: 670px;
+    background-color: #52b788;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    @include flexbox(center, column, center);
+
+    .form {
+      background-color: white;
+      height: 525px;
+      width: 375px;
+      border-radius: 25px;
+      @include flexbox(center, column, center);
+      text-align: center;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+      span {
+        padding-top: 5px;
+        font-size: 12px;
+      }
+
+      #link {
+        color: rgb(0, 68, 255);
+        cursor: pointer;
+      }
+
+      #error-message {
+        color: red;
+      }
+
+      #success-message {
+        color: #52b788;
+      }
+
+      input {
+        width: 275px;
+        height: 40px;
+        border-radius: 20px;
+        border: none;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
+          rgba(233, 236, 239, 0.9) 0px 0px 0px 1px;
+        padding-left: 10px;
+      }
+
+      input[type="submit"] {
+        background-color: #52b788;
+        color: white;
+        width: 285px;
+        margin: 10px;
+        box-shadow: rgba(82, 183, 136, 0.2) 0px 0px 0px 1px inset,
+          rgba(82, 183, 136, 0.9) 0px 0px 0px 1px;
+        font-weight: 600;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #ccda93;
+        box-shadow: rgba(204, 218, 147, 0.2) 0px 0px 0px 1px inset,
+          rgba(204, 218, 147, 0.9) 0px 0px 0px 1px;
+        font-weight: 600;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        padding-bottom: 50px;
+      }
+
+      #message {
+        color: red;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  body {
+    height: 60vh;
+  }
+
+  .login-div {
+    @include mainDiv-Mobile();
+    @include flexbox(center, column, flex-end);
+  }
+
+  .login-picture-div {
+    width: 500px !important;
+    height: 40vh !important;
+    @include flexbox(center, column, center);
+  }
+  .form {
+    width: 425px !important;
+  }
+
+  .login-form-div {
+    width: 100vw !important;
+    border-radius: 0px !important;
+  }
+
+  .main-div {
+    width: 100vw !important;
+    @include flexbox(center, column, center);
+    align-items: center !important;
+  }
+
+  .children-div {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100vw !important;
+    height: 500px !important;
+    overflow-y: auto;
+    padding-bottom: 100px !important;
+    padding-top: 120px !important;
+    text-align: justify;
+  }
+
+  .children-div-employee,
+  .children-div-department,
+  .children-div-edit-department,
+  .children-div-edit-employee,
+  .children-div-add-shift,
+  .children-div-details {
+    height: 775px !important;
+  }
+
+  #addEmpForm,
+  #addDepForm {
+    width: 450px !important;
+    height: 500px !important;
+  }
+
+  .shift {
+    @include flexbox(center, column, center);
+  }
+
+  .search {
+    width: 300px !important;
+  }
+
+  .children-div-main {
+    width: 100vw !important;
+    border-radius: 0px !important;
+  }
+
+  nav {
+    height: 170px !important;
+    width: 93vw !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .right-side-section {
+    display: none !important;
+  }
+
+  .left-side-section {
+    display: none !important;
+  }
+
+  .employee-div,
+  .department-div {
+    background-color: white;
+    width: 375px !important;
+    height: 300px !important;
+    margin: 10px !important;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    transition: all 0.2s ease-in-out;
+    padding-top: 10px !important;
+    padding-bottom: 40px !important;
+
+    #user {
+      font-size: 4rem !important;
+    }
+
+    img {
+      width: 100px !important;
+    }
+
+    h4 {
+      font-size: 2rem !important;
+    }
+
+    h3 {
+      font-size: 2rem !important;
+    }
+
+    span {
+      font-size: 1.5rem !important;
+    }
+
+    button {
+      width: 300px !important;
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
+      font-size: large !important;
+    }
+  }
+
+  #shifts,
+  #removeEmp,
+  #editEmp {
+    font-size: 35px !important;
+    padding: 10px !important;
+  }
+}
+
+.main-div {
+  @include mainDiv();
+  @include flexbox(center, column, flex-start);
+}
+
+nav {
+  @include flexbox(center, row, space-between);
+  height: 85px;
+  width: 70vw;
+
+  .logo {
+    @include flexbox(center, row, space-around);
+    width: 200px;
+  }
+
+  #inc {
+    color: #d2d9df;
+  }
+
+  button {
+    @include primaryBtn();
+  }
+}
+
+.router-outlet-children {
+  @include flexbox(top, row, space-between);
+}
+
+.children-div-main {
+  text-align: center;
+  background-color: #e5e9eb;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+
+  input {
+    width: 500px;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 20px;
+  }
+}
+
+.children-div-employee,
+.children-div-department,
+.children-div-edit-department,
+.children-div-edit-employee,
+.children-div-add-shift,
+.children-div-details {
+  height: 585px;
+  background-color: #e5e9eb;
+  width: 900px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  @include flexbox(center, column, center);
+
+  .details {
+    @include flexbox(center, column, space-evenly);
+    width: 860px;
+
+    button {
+      @include primaryBtn();
+      margin-top: 10px;
+    }
+
+    .employee-details {
+      width: 800px;
+      height: 200px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      @include flexbox(center, row, space-evenly);
+      background-color: #ffffff;
+      border-bottom: 1px solid rgb(219, 219, 219);
+
+      .employee-details-right {
+        @include flexbox(center, column, center);
+      }
+    }
+
+    .shifts-details {
+      width: 800px;
+      height: 270px;
+      background-color: white;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      align-items: center;
+      overflow-y: auto;
+      text-align: justify;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      h3 {
+        align-self: center;
+        text-align: center;
+        width: 675px;
+      }
+
+      .shift-div {
+        background-color: rgb(253, 253, 253);
+        color: #52b788;
+        width: 650px;
+        height: 55px;
+        border-radius: 40px;
+        margin: 7px;
+        @include flexbox(center, row, center);
+        font-size: 1.2rem;
+        font-weight: 600;
+        box-shadow: rgba(82, 183, 136, 0.2) 0px 0px 0px 1px inset,
+          rgba(82, 183, 136, 0.9) 0px 0px 0px 1px;
+        transition: all 0.2s ease-in-out;
+
+        span {
+          width: 370px;
+        }
+
+        #removeShift {
+          color: red;
+          width: 250px;
+        }
+
+        #removeShift:hover {
+          color: #a40303;
+        }
+      }
+
+      .shift-div:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+.children-div {
+  width: 900px;
+  height: 498px;
+  background-color: #e5e9eb;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  grid-template-columns: 200px 200px 200px 200px;
+  display: grid;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  overflow-y: auto;
+  text-align: justify;
+  padding-top: 15px;
+
+  .employee-div {
+    background-color: white;
+    width: 200px;
+    height: 230px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    transition: all 0.2s ease-in-out;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    #user {
+      font-size: 2.2rem;
+    }
+  }
+
+  .employee-div:hover {
+    transform: scale(1.05);
+  }
+
+  .employee-name-department {
+    @include flexbox(center, column, space-evenly);
+    height: 130px;
+
+    button {
+      @include primaryBtn();
+      margin-top: 10px;
+    }
+  }
+
+  .shift-deleteEmp-icon {
+    @include flexbox(center, row, space-between);
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .edit-div-icon {
+    padding-left: 10px;
+  }
+
+  #shifts,
+  #removeEmp,
+  #editEmp {
+    font-size: 20px;
+  }
+
+  #shifts:hover {
+    color: #52b788;
+  }
+  #removeEmp:hover {
+    color: red;
+  }
+
+  #editEmp:hover {
+    color: orange;
+  }
+}
+
+.right-side-section {
+  width: 220px;
+  height: 450px;
+
+  .logged-user-div,
+  .add-employee,
+  .add-department {
+    @include flexbox(center, column, space-evenly);
+    height: 150px;
+    border-bottom: 1px solid rgb(219, 219, 219);
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .actions {
+    @include flexbox(center, column, space-evenly);
+    height: 80px;
+    width: 80%;
+    margin: 0 auto;
+    border-bottom: 1px solid rgb(219, 219, 219);
+
+    #actions {
+      color: red;
+    }
+  }
+
+  #addUser {
+    font-size: 2rem;
+    background-color: #52b788;
+    color: white;
+    border-radius: 50%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  #addUser:hover {
+    background-color: #ccda93;
+  }
+}
+
+.left-side-section {
+  width: 80px;
+  font-size: 1.5rem;
+  height: 500px;
+  @include flexbox(center, column, top);
+
+  #department:hover,
+  #employee:hover {
+    color: #52b788;
+  }
+}
+
+.add-employee-form,
+.add-department-form {
+  @include flexbox(center, row, center);
+  height: 585px;
+  width: 860px;
+
+  #addEmpForm,
+  #addDepForm {
+    background-color: white;
+    width: 550px;
+    height: 430px;
+    border-radius: 20px;
+    @include flexbox(center, column, center);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+    input,
+    select {
+      width: 380px;
+      height: 40px;
+      border-radius: 20px;
+      margin-top: 20px;
+      border: none;
+      box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
+        rgba(233, 236, 239, 0.9) 0px 0px 0px 1px;
+      padding-left: 10px;
+    }
+
+    select {
+      width: 390px;
+    }
+
+    input[type="submit"] {
+      background-color: #52b788;
+      color: white;
+      font-weight: 600;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #ccda93;
+    }
+  }
+}
+
+.department-div {
+  background-color: white;
+  width: 200px;
+  height: 230px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  transition: all 0.2s ease-in-out;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  @include flexbox(center, column, top);
+  text-align: center;
+
+  #departmentName {
+    color: #52b788;
+  }
+
+  .edit-deleteDep-icon {
+    @include flexbox(center, row, space-between);
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 180px;
+  }
+}
+
+.department-div:hover {
+  transform: scale(1.05);
+}
+
+.add-shift-div {
+  width: 860px;
+  height: 400px;
+  border-radius: 20px;
+  @include flexbox(center, column, center);
+
+  .shift {
+    background-color: white;
+    width: 700px;
+    height: 85px;
+    padding-top: 50px;
+    border-radius: 20px;
+    @include flexbox(flex-start, row, space-evenly);
+
+    .errors {
+      @include flexbox(center, column, center);
+
+      span {
+        padding-top: 10px;
+        color: red;
+      }
+    }
+
+    button {
+      @include primaryBtn();
+    }
+
+    input[type="date"] {
+      border-radius: 20px;
+      padding: 5px;
+      width: 150px;
+    }
+  }
+}
+
+.popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 60%;
+  padding: 15% 35% 25% 35%;
+  color: #000000;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+
+  .inner-popup {
+    background-color: white;
+    width: 400px;
+    height: 200px;
+    border-radius: 20px;
+    @include flexbox(center, column, space-evenly);
+    text-align: center;
+
+    button {
+      @include primaryBtn();
+      margin: 5px;
+    }
+
+    #delete {
+      background-color: red;
+    }
+
+    #delete:hover {
+      background-color: #a40303;
+    }
+  }
+}
+
+.search {
+  width: 400px;
+  height: 22px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 20px;
+  padding-left: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #f8f9fa;
+}
+
+.search:focus {
+  outline-width: 1px;
+  outline-color: #e9ecef;
+}
+
+#addDepartmentMessage {
+  color: red;
+}
+
+#addEmployeeMessage {
+  color: red;
+}

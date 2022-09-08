@@ -1,0 +1,35 @@
+<div class="children-div-details">
+
+    <div class="details">
+
+        <div class="employee-details">
+
+            <h1>{{employee.firstname}} {{employee.lastname}}</h1>
+            <div class="employee-details-right">
+                <span>Starting Work Year: <b>{{employee.startwork}}</b></span>
+                <span>Working in: <b>{{employee.department}}</b></span>
+
+                <button class="primatyBtn" (click)="addShift()">Add Shift</button>
+            </div>
+
+        </div>
+
+
+
+
+        <div class="shifts-details">
+
+
+            <h3 *ngIf="!employee.shifts.length">No Shifts Yet.</h3>
+
+
+            <app-shift-comp [shift]="shift" [employee]="employee" *ngFor="let shift of employee.shifts">
+            </app-shift-comp>
+
+
+
+        </div>
+
+    </div>
+
+</div>

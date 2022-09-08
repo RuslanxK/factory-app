@@ -1,0 +1,22 @@
+<div class="shift-div">
+
+    <fa-icon id="removeShift" [icon]="faXmarkCircle" (click)="openPopup()"></fa-icon>
+    <span>{{shift}}</span>
+
+</div>
+
+<div class="popup" *ngIf="deletePopup">
+
+    <div class="inner-popup">
+
+        <h1>Are you sure?</h1>
+        <span>You will delete the shift at this date: <br> <b>{{shift}}</b> </span>
+        <div>
+            <button id="delete" (click)="deleteShift()">Delete</button>
+            <button (click)="back()">Cancel</button>
+        </div>
+
+
+    </div>
+
+</div>

@@ -1,0 +1,34 @@
+<div class="department-div">
+
+    <div class="edit-deleteDep-icon">
+        <fa-icon id="shifts" [icon]="faEdit" (click)="editDep()"></fa-icon>
+        <fa-icon id="removeEmp" [icon]="faXmarkCircle" (click)="displayPopup()"></fa-icon>
+    </div>
+
+    <div>
+
+        <img src="assets/images/manager.png" width="50px">
+        <h4 id="departmentName">-{{department.name}}-</h4>
+        <h3>Manager,</h3>
+        {{department.manager}}
+
+    </div>
+
+</div>
+
+<div class="popup" *ngIf="deletePopup">
+
+    <div class="inner-popup">
+
+        <h1>Are you sure?</h1>
+        <span>You will delete<br> <b>{{department.name}}</b> Department</span>
+
+        <div>
+            <button id="delete" (click)="deleteDep()">Delete</button>
+            <button (click)="back()">Cancel</button>
+        </div>
+
+
+    </div>
+
+</div>

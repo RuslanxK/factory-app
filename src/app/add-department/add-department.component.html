@@ -1,0 +1,18 @@
+<div class="children-div-department">
+    <div class="add-department-form">
+
+        <form id="addDepForm" (ngSubmit)="submit()">
+
+            <h2>Add Department</h2>
+
+            <span *ngIf="addDepartmentMessage" id="addDepartmentMessage">Manager && Name required!</span>
+
+            <input type="text" placeholder="Manager" name="manager" [(ngModel)]="dep.manager">
+            <input type="text" placeholder="Name" name="name" [(ngModel)]="dep.name">
+
+            <input type="submit" value="Add">
+        </form>
+
+    </div>
+
+</div>

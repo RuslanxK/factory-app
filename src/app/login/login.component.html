@@ -1,0 +1,66 @@
+<div class="login-div">
+
+
+    <div class="login-picture-div"></div>
+    <div class="login-form-div">
+
+        <div class="form" *ngIf="displayLogin">
+
+            <form #l="ngForm" (ngSubmit)="login()">
+
+                <h1>Login</h1>
+
+                <span *ngIf="loginMessage" id="error-message">Username or Password incorrect!</span>
+                <span *ngIf="unableLogin" id="error-message">Please Wait {{timeLeft}} seconds</span>
+                <span *ngIf="LoginAgain" id="success-message">You can Login Again!</span>
+
+
+                <input type="text" placeholder="username" name="username" [(ngModel)]="user.username">
+
+                <input type="password" placeholder="password" name="password" [(ngModel)]="user.password">
+
+                <input type="submit" value="Login"> <br>
+                <span>No Account? Register <span id="link" (click)="displayForm()">Here</span></span> <br>
+
+
+            </form>
+
+        </div>
+
+        <div class="form" *ngIf="displayRegister">
+
+            <form #r="ngForm" (ngSubmit)="register()">
+
+                <h1>Register</h1>
+
+                <span *ngIf="existingMessage" id="error-message">This user is already exist.</span>
+
+                <input type="text" placeholder="fullname" name="fullname" [(ngModel)]="newUser.fullname" required
+                    minlength="5" #fullname="ngModel"> <br>
+                <span *ngIf="fullname.errors?.['minlength']" id="message">Fullname must be at least 5 characters
+                    long.</span>
+
+                <input type="text" placeholder="username" name="username" [(ngModel)]="newUser.username" required
+                    minlength="4" #username="ngModel"><br>
+
+                <span *ngIf="username.errors?.['minlength']" id="message">Username must be at least 4 characters
+                    long.</span>
+
+
+                <input type="password" placeholder="password" name="password" [(ngModel)]="newUser.password" required
+                    minlength="6" #password="ngModel"><br>
+
+                <span *ngIf="password.errors?.['minlength']" id="message">Name must be at least 6 characters
+                    long.</span>
+
+                <input type="submit" value="Register"> <br>
+                <span>Already Registered? Login <span id="link" (click)="displayForm()">Here</span></span>
+
+            </form>
+        </div>
+
+
+    </div>
+
+
+</div>
